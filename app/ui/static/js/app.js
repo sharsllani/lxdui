@@ -11,10 +11,11 @@ var App = App || {
     images: null,
     ongoingOperation: 0,
     network: null,
+    pods: null,
     location: null,
     loading: false,
     tokenRefreshing: false,
-    notInitialized:['containers', 'images', 'network', 'containerDetails', 'storagePool'],
+    notInitialized:['containers', 'images', 'network', 'containerDetails', 'storagePool', 'pods'],
     init: function(){
         console.log('App initializing');
         this.setDefaultHeaders();
@@ -33,6 +34,8 @@ var App = App || {
             this.containerDetails.init();
         if(this.containers && window.location.href.startsWith(WEB +'storage-pools'))
             this.storagePool.init();
+        if(this.containers && window.location.href.startsWith(WEB +'pods'))
+            this.pods.init();
 
         console.log('App initialized');
         this.getInfo();

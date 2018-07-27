@@ -112,6 +112,9 @@ def images():
                            lxdui_current_version=VERSION,
                            remoteImagesLink=remoteImagesLink)
 
+@uiPages.route('/pods')
+def pods():
+    return render_template('pods.html', currentpage='Images')
 
 def getLocalImages():
     try:

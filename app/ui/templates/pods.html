@@ -1,0 +1,529 @@
+{% extends "index.html" %}
+{% block content %}
+<div id="containers">
+    <div class="col-lg-12 main-div parent">
+        <div class="row">
+            <div class="col-lg-12">
+                <legend class="legend">
+                    <span>Pods </span>
+                    <span class="glyphicon glyphicon-refresh spinning loader"></span>
+                </legend>
+            </div>
+            <div class="col-lg-12">
+                <p><button id="buttonNewPod" class="btn btn-primary">New</button></p>
+            </div>
+        </div>
+        <div class="no-pods col-lg-12 hidden">
+            <div class="child">
+                <img src="" alt="">
+                <p>There are no pods yet. Crate one?</p>
+                <p><button id="buttonNewPod" class="btn btn-primary">New</button></p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel-group pods" id="accordion">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title row">
+                        <div class="col-lg-4 accordion-header-text">
+                             <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="makeEditable">Elasticsearch <span class="badge">3</span></a>
+                        </div>
+                        <div class="col-lg-2 action-buttons">
+                            <a href="" class="btn-calendar">
+                                 <i class="glyphicon glyphicon-calendar"></i>&nbsp;|&nbsp;
+                            </a>
+                            <a href="#" id="btnFieldsEditable" onClick="$.proxy(App.pods.makeFieldsEditable());">
+                                  <i class="glyphicon glyphicon-edit"></i>
+                            </a>
+                            <a href="">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </a>
+                        </div>
+                        <div class="col-lg-5 text-right action-buttons">
+                            <a href=""><i class="glyphicon glyphicon-play"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-stop"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-repeat"></i></a>&nbsp; | &nbsp;
+                            <a href=""><i class="glyphicon glyphicon-play"></i> <i class="glyphicon glyphicon-pause"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-camera"></i></a>&nbsp; | &nbsp;
+                            <a href=""><i class="glyphicon glyphicon-move"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-duplicate"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-share-alt"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-send"></i></a>
+                        </div>
+                        <div class="col-lg-1 hidden">
+                            <a href="" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" class="btn btn-default circle-radius"><i class="glyphicon glyphicon-option-horizontal"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-play"></i> Start</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-stop"></i>Stop</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-repeat"></i>Restart</a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-play"></i> <i class="glyphicon glyphicon-pause"></i>  Freeze/Unfreeze</a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-camera"></i>Snapshot
+                                    </a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-move"></i>Move
+                                    </a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-duplicate"></i>Copy
+                                    </a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-share-alt"></i>Export
+                                    </a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-send"></i>Publish
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </h4>
+                  </div>
+                  <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <ul class="network-list">
+                                    <li>
+                                        Bridge:  <span class="mg-left5 makeEditable"> pbr0</span>
+                                    </li>
+                                    <li>
+                                        Network:  <span class="mg-left5 makeEditable"> 10.7.7.1/24</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+                                 <ul class="network-list">
+                                     <li>
+                                        Storage Pool:  <span class="mg-left5 makeEditable"> psp0</span>
+                                    </li>
+                                    <li>
+                                        Profile(s):  <span class="mg-left5 makeEditable"> default, elastic</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3">
+                                 <ul class="network-list">
+                                     <li>
+                                        Schedule:  <span class="mg-left5"> Daily  <i class="glyphicon glyphicon-calendar"></i></span>
+                                    </li>
+                                    <li>
+                                        Placement:  <span class="mg-left5 makeEditable"> local</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-1">
+                                <button class="btn btn-default btn-rounded-corners btn-xs btn-json pull-right" href="#" id="rawJSONPods">JSON</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <!--<div class="row top-action-table-buttons mgbottom-5">-->
+                                    <!--<a class="btn btn-default">Add Containers</a>&nbsp;|&nbsp;<a class="btn btn-default">New Containers</a>-->
+                                <!--</div>-->
+                                 <div class="top-action-table-buttons mgbottom-5">
+                                    <a class="btn btn-default">Add Containers</a>&nbsp;<a class="btn btn-default">New Containers</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <table class="table table-bordered" id="tableContainerss">
+                                    <thead>
+                                        <th>Container</th>
+                                        <th>Status</th>
+                                        <th>IP Address</th>
+                                        <th>OS/Image</th>
+                                        <th>Boot Priority</th>
+                                        <th>Placement</th>
+                                        <th class="action-width"><i class="glyphicon glyphicon-option-vertical"></i></th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>c1</td>
+                                            <td>Running</td>
+                                            <td>10.7.7.11</td>
+                                            <td>Ubuntu 14</td>
+                                            <td>1</td>
+                                            <td>lxd.host1</td>
+                                            <td class="td-width-action text-center">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>c2</td>
+                                            <td>Running</td>
+                                            <td>10.7.7.12</td>
+                                            <td>Ubuntu 14</td>
+                                            <td>2</td>
+                                            <td>lxd.host1</td>
+                                            <td class="td-width-action text-center">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>c3</td>
+                                            <td>Running</td>
+                                            <td>10.7.7.13</td>
+                                            <td>Ubuntu 14</td>
+                                            <td>2</td>
+                                            <td>lxd.host1</td>
+                                            <td class="td-width-action text-center">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                       <h4 class="panel-title row">
+                        <div class="col-lg-4 accordion-header-text">
+                             <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">MongoDB Shared Cluster</a>
+                            <span class="badge">5</span>
+                        </div>
+                        <div class="col-lg-2 action-buttons">
+                            <a href="" class="btn-calendar">
+                                 <i class="glyphicon glyphicon-calendar"></i>&nbsp;|&nbsp;
+                            </a>
+                            <a>
+                                  <i class="glyphicon glyphicon-edit"></i>
+                            </a>
+                            <a href="">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </a>
+                        </div>
+                        <div class="col-lg-5 text-right action-buttons hidden">
+                            <a href=""><i class="glyphicon glyphicon-play"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-stop"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-repeat"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-play"></i> <i class="glyphicon glyphicon-pause"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-camera"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-move"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-duplicate"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-share-alt"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-send"></i></a>
+                        </div>
+                        <div class="col-lg-1 pull-right">
+                            <a href="" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" class="btn btn-default circle-radius"><i class="glyphicon glyphicon-option-vertical"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-play"></i> Start</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-stop"></i>Stop</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-repeat"></i>Restart</a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-play no-margin"></i> <i class="glyphicon glyphicon-pause no-margin"></i>  Freeze/Unfreeze</a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-camera"></i>Snapshot
+                                    </a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-move"></i>Move
+                                    </a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-duplicate"></i>Copy
+                                    </a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-share-alt"></i>Export
+                                    </a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-send"></i>Publish
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </h4>
+                  </div>
+                  <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                       <h4 class="panel-title row">
+                        <div class="col-lg-4 accordion-header-text">
+                               <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Spark 2.0 Cluster</a>
+                                <span class="badge">10</span>
+                        </div>
+                        <div class="col-lg-2 action-buttons">
+                            <a href="" class="btn-calendar">
+                                 <i class="glyphicon glyphicon-calendar"></i>&nbsp;|&nbsp;
+                            </a>
+                            <a href="">
+                                  <i class="glyphicon glyphicon-edit"></i>
+                            </a>
+                            <a href="">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </a>
+                        </div>
+                        <div class="col-lg-5 text-right action-buttons hidden">
+                            <a href=""><i class="glyphicon glyphicon-play"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-stop"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-repeat"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-play"></i> <i class="glyphicon glyphicon-pause"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-camera"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-move"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-duplicate"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-share-alt"></i></a>
+                            <a href=""><i class="glyphicon glyphicon-send"></i></a>
+                        </div>
+                        <div class="col-lg-1 pull-right">
+                            <a href="" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" class="btn btn-default circle-radius"><i class="glyphicon glyphicon-option-vertical"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-play"></i> Start</a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-stop"></i>Stop</a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-repeat"></i>Restart</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-play no-margin"></i> <i class="glyphicon glyphicon-pause no-margin"></i>  Freeze/Unfreeze</a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-camera"></i>Snapshot
+                                    </a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-move"></i>Move
+                                    </a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-duplicate"></i>Copy
+                                    </a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-share-alt"></i>Export
+                                    </a>
+                                </li>
+                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a>
+                                        <i class="glyphicon glyphicon-send"></i>Publish
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </h4>
+                  </div>
+                  <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="newPodModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">New Pod</h4>
+            </div>
+            <div class="modal-body">
+                <form id="newPodForm" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Name</label>
+                        <div class="col-sm-8">
+                            <input id="name" name="newPod" class="form-control" type="text"
+                                   placeholder="Pod Name" title="Pod Name" required/>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Network Type</label>
+                        <div class="col-sm-8">
+                            <select name="network-type" id=network-type"">
+                                <option value="bridged">bridged</option>
+                            </select>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Bridge</label>
+                        <div class="col-sm-8">
+                            <select name="bridge" id="bridge">
+                                <option value="lxdbr0">lxdbr0</option>
+                            </select>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">Network</label>
+                        <div class="col-sm-8">
+                            <input id="network" name="network" class="form-control" type="text"
+                                   placeholder="Network" title="Network" required/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="buttonNewPodSubmit" class="btn btn-primary">Save <span
+                        class="glyphicon glyphicon-refresh spinning loader"></span></button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addContainersModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <form id="addContainersForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="snapshotName" class="col-sm-3 control-label">Hello world</label>
+                            <div class="col-sm-8">
+                                <input id="" name="snapshotName" class="form-control" type="text"
+                                       placeholder="Snapshot Name" title="Snapshot Name" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="snapshotStateful2" class="col-sm-3 control-label">Stateful</label>
+                            <input type="checkbox" class="form-check-input" id="snapshotStateful2" name="stateful">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-inline col-md-offset-3 col-md-3 mgtop-10">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="buttonAddContainers" class="btn btn-primary">Save <span
+                            class="glyphicon glyphicon-refresh spinning loader"></span></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+    </div>
+</div>
+    <div class="modal fade" id="newContainersModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="newContainersForm" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="snapshotName" class="col-sm-3 control-label">Snapshot Name</label>
+                                <div class="col-sm-8">
+                                    <input id="snapshotName" name="snapshotName" class="form-control" type="text"
+                                           placeholder="Snapshot Name" title="Snapshot Name" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="snapshotStateful2" class="col-sm-3 control-label">Stateful</label>
+                                <input type="checkbox" class="form-check-input" id="" name="stateful">
+                            </div>
+                            <div class="form-group">
+                                <div class="form-inline col-md-offset-3 col-md-3 mgtop-10">
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="buttonNewContainers" class="btn btn-primary">Save <span
+                                class="glyphicon glyphicon-refresh spinning loader"></span></button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endblock %}

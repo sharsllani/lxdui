@@ -903,4 +903,142 @@ color: #000 !important;
     margin-left: 5px;
 }
 
+.no-pods {
+    height: 500px;
+}
+
+.parent {
+  position: relative;
+}
+.child {
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/*PODS*/
+
+
+.pods > .panel-heading {
+    border: none !important;
+    background: transparent !important;
+}
+
+.pods > div > div.panel-heading > h4 > a {
+    font-weight: bold !important;
+}
+
+.pods > .panel-heading > .badge {
+    border: 1px solid #000;
+}
+
+.pods > .panel-default>.panel-heading .badge {
+    background-color: white !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    padding: 4px 14px !important;
+}
+
+
+.pods > .panel > div:nth-child(1) {
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+    background: transparent !important;
+}
+
+.pods > .panel > div:nth-child(2) {
+    border: none !important;
+}
+
+.pods > .panel-body {
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !importants;
+}
+
+.pods > .panel-default > .panel-heading + .panel-collapse > .panel-body:nth-child(1) {
+    border: none !important;
+}
+
+.pods > network-list {
+    padding: 0px;
+}
+
+.pods > .network-list > li{
+   list-style-type: none;
+   line-height: 32px;
+}
+
+.pods > .panel-title > .btn {
+    border: none !important;
+}
+
+.pods > .no-margin {
+    margin-right: 0px;
+}
+
+.action-buttons a {
+    font-weight: bold !important;
+    color: #000 !important;
+    text-decoration: none !important;
+    margin-right: 10px;
+}
+
+.action-buttons > .btn-calendar {
+    margin-right: 0px;
+}
+
+.pods > div > div > h4 > div  > ul > li  > a > i {
+    margin-right: 10px;
+}
+
+.pods > div > div > h4 > div > ul > li > a > i.no-margin {
+    margin-right: 0px !important;
+}
+
+.dropdown-menu>li:hover {
+    pointer: cursor !important;
+}
+
+
+/*
+.top-action-table-buttons > .btn {
+    color: #000 !important;
+    text-decoration: none !important;
+}
+*/
+
+.action-width {
+    width: 20px !important;
+    text-align: center;
+}
+
+.circle-radius {
+    border-radius: 50px !important;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.pods  > div > div.panel-heading > h4 > .accordion-header-text > a {
+    color: #000 !important;
+    font-weight: bold !important;
+    text-decoration:  none !important;
+}
+
+.mgbottom-5 {
+    margin-bottom: 5px;
+}
+
+
+
+
+
+/*PODS END*/
+
 
